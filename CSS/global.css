@@ -69,15 +69,15 @@ body::selection{
  .layer-content{
     width: 35%;
     height: fit-content;
-    padding-bottom: 15px;
-
+    padding-bottom: 30px;
+    padding-right: 10px;
 
  }
  @media (max-width : 1200px) {
    .layer-content{
     width: 51%;
     height: fit-content;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
 
 
  }  
@@ -87,7 +87,7 @@ body::selection{
    .layer-content{
     width: 60%;
     height: fit-content;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 
 
  }  
@@ -97,7 +97,7 @@ body::selection{
    .layer-content{
     width: 65%;
     height: fit-content;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 
 
  }  
@@ -107,7 +107,7 @@ body::selection{
    .layer-content{
     width: 90%;
     height: fit-content;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 
 
  }  
