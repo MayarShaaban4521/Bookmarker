@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Bubblegum+Sans&family=Cairo:wght@200..1000&family=Cinzel:wght@400..900&family=Great+Vibes&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poetsen+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Bubblegum+Sans&family=Cairo:wght@200..1000&family=Cinzel:wght@400..900&family=Great+Vibes&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poetsen+One&family=Righteous&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Bree+Serif&family=Bubblegum+Sans&family=Cairo:wght@200..1000&family=Cinzel:wght@400..900&family=Great+Vibes&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poetsen+One&family=Righteous&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/global.css">
+</head>
+<body>
+    <div class="container">
+    <header class="d-flex flex-column align-items-center pt-5 mt-2">
+        <h1 class="header p-1 display-5">Bookmarker</h1>
+        <div class="dotted w-100 mt-5"></div>
+    </header>
+    <section class="Bookmark-body">
+        <h2 class="bookheader text-center pt-4 fs-4">
+            <span><i class="fa-solid fa-bookmark fs-4"></i></span>
+            Bookmark your favorite sites
+            <span><i class="fa-solid fa-bookmark fs-4"></i></span>
+        </h2>
+        <div class="site-name">
+        <label for="bookmarkName" class="fw-bold pt-4 pb-2"><i class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label>
+        <input type="text" placeholder="Bookmark Name" class="form-control input-error" id="bookmarkName">
+        </div>
+        <div class="site-url">
+        <label for="bookmarkURL" class="fw-bold pt-4 pb-2"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+        <input type="text" placeholder="Bookmark URL" class="form-control input-error" id="bookmarkURL">
+        </div>
+        <div class="submit d-flex align-items-center justify-content-center">
+        <button class="btn btn-submit px-5 my-4" id="submitBtn" onclick="addSite();">Submit</button>
+        </div>
+        <div class="dotted w-100"></div>
+    </section>
+    <section>
+    
+        <table class="table bg-light mt-4">
+            <thead class="text-center" >
+            <tr>
+            <th class="py-2">Index</th> 
+            <th>Website Name</th> 
+            <th>Visit</th> 
+            <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody class="text-center" id="tBody">
+          
+            </tbody>
+        </table>
+    </section>
+      <div id="layer" class="d-none justify-content-center align-items-center position-fixed start-0 top-0 end-0 bottom-0 bg-black bg-opacity-50">
+    <div id="layerContent" class="layer-content position-relative align-items-center justify-content-between bg-white text-black rounded-3 shadow">
+        <div class="d-flex justify-content-between  top-0 start-0">
+            <div class="circles d-flex">
+                <span class="circle rounded-circle bg-danger m-4 me-2"></span>
+                <span class="circle rounded-circle bg-warning my-4 me-2"></span>
+                <span class="circle rounded-circle bg-success my-4 me-2"></span>
+            </div>
+            <div>
+                      <i class="m-3 fs-3 fa-solid fa-times position-absolute top-0 end-0 my-4" id="closeIcon"></i>
+
+            </div>
+            
+        </div>
+
+      <p class="layerPara ms-4 me-5 fs-5">Site Name or Url is not valid, Please follow the rules below :</p>
+      <div class="fs-5 ms-4">
+      <span><i class="fa-regular fa-circle-right pe-2 text-danger"></i>Site name must contain at least 3 characters</span>
+      </div>
+      <div class="fs-5 ms-4">
+      <span><i class="fa-regular fa-circle-right pe-2 text-danger"></i>Site URL must be a valid. ex) <span class="text-dark">https://example.com </span> </span>
+      </div>
+    </div>
+    </div>
+    <script src="JS/index.js"></script>
+</body>
+</html>
